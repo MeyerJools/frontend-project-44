@@ -1,6 +1,9 @@
 #!/usr/bin/env node
-import brainEven from '../src/brain-even-code.js';
+import nameQuestion from '../src/cli.js';
+import brainEven from '../src/BrEven.js';
 
 console.log('Welcome to the Brain Games!');
+
+nameQuestion();
 
 brainEven();
