@@ -1,14 +1,16 @@
 import readlineSync from 'readline-sync';
 
-const game = () => {
+const game = (name, gameQuestion, correctAnswer) => {
   for (let i = 1; i <= 3; i += 1) {
-    console.log(`Question: ${gameQuestion}`);
+    const quest = gameQuestion();
+    const corrAns = correctAnswer(quest);
+    console.log(`Question: ${quest}`);
     const answer = readlineSync.question('Your answer: ');
-    if (answer === correctAnswer) {
+    if (answer === corrAns) {
       console.log('Correct!');
     }
-    if (answer !== correctAnswer) {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+    if (answer !== corrAns) {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${corrAns}.`);
       console.log(`Let's try again, ${name}!`);
       break;
     }
