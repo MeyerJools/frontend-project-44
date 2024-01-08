@@ -8,3 +8,6 @@ https://asciinema.org/connect/e4f4e70f-8897-4eb6-9757-482c0fcad0a8
 
 Brain-calc Game
 https://asciinema.org/a/g172fW3UMFKiRiUjy9U4IZ3oe
+
+Brain-GCD Game
+https://asciinema.org/a/FyKa6Zr6RPKoHBcxCeNFX8Dau
