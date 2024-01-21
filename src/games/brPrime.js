@@ -1,12 +1,11 @@
-import readlineSync from 'readline-sync';
 import playGame from '../index.js';
 
 const playBrainPrime = () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
   const askQuestion = () => {
+    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  };
+
+  const createQuestion = () => {
     const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     const result = random(1, 50);
     return result;
@@ -23,7 +22,7 @@ const playBrainPrime = () => {
     return result;
   };
 
-  playGame(name, askQuestion, findeCorrAnswer);
+  playGame(createQuestion, askQuestion, findeCorrAnswer);
 };
 
 export default playBrainPrime;

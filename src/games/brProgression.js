@@ -1,12 +1,11 @@
-import readlineSync from 'readline-sync';
 import playGame from '../index.js';
 
 const playBrainProgression = () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log('What number is missing in the progression?');
-
   const askQuestion = () => {
+    console.log('What number is missing in the progression?');
+  };
+
+  const createQuestion = () => {
     const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     const array = [random(1, 100)];
     const arrayLength = random(5, 10);
@@ -36,7 +35,7 @@ const playBrainProgression = () => {
     return result;
   };
 
-  playGame(name, askQuestion, findeCorrAnswer);
+  playGame(createQuestion, askQuestion, findeCorrAnswer);
 };
 
 export default playBrainProgression;

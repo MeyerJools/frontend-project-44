@@ -1,12 +1,11 @@
-import readlineSync from 'readline-sync';
 import playGame from '../index.js';
 
 const playBrainEven = () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
   const askQuestion = () => {
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  };
+
+  const createQuestion = () => {
     const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     const result = random(1, 10);
     return result;
@@ -23,7 +22,7 @@ const playBrainEven = () => {
     return result;
   };
 
-  playGame(name, askQuestion, findeCorrAnswer);
+  playGame(createQuestion, askQuestion, findeCorrAnswer);
 };
 
 export default playBrainEven;
