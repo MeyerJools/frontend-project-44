@@ -1,12 +1,12 @@
 import readlineSync from 'readline-sync';
-import game from '../index.js';
+import playGame from '../index.js';
 
-const brainCalc = () => {
+const playBrainCalc = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log('What is the result of the expression?');
 
-  const gameQuestion = () => {
+  const askQuestion = () => {
     const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     const num1 = random(1, 100);
     const num2 = random(1, 100);
@@ -16,13 +16,13 @@ const brainCalc = () => {
     return result;
   };
 
-  const correctAnswer = (quest) => {
+  const findeCorrAnswer = (quest) => {
     const number = eval(quest);
     const result = `${number}`;
     return result;
   };
 
-  game(name, gameQuestion, correctAnswer);
+  playGame(name, askQuestion, findeCorrAnswer);
 };
 
-export default brainCalc;
+export default playBrainCalc;

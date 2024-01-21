@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync';
 
-const game = (name, gameQuestion, correctAnswer) => {
+const playGame = (name, askQuestion, findeCorrAnswer) => {
   for (let i = 1; i <= 3; i += 1) {
-    const quest = gameQuestion();
-    const corrAns = correctAnswer(quest);
+    const quest = askQuestion();
+    const corrAns = findeCorrAnswer(quest);
     console.log(`Question: ${quest}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === corrAns) {
@@ -21,4 +21,4 @@ const game = (name, gameQuestion, correctAnswer) => {
   }
 };
 
-export default game;
+export default playGame;
