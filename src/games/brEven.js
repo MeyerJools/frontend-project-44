@@ -1,25 +1,20 @@
 import playGame from '../index.js';
+import random from '../random.js';
 
 const playBrainEven = () => {
-  const askQuestion = () => {
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  };
+  const askQuestion = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   const createQuestion = () => {
-    const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-    const result = random(1, 10);
-    return result;
+    const rangeStart = 1;
+    const rangeEnd = 100;
+    return random(rangeStart, rangeEnd);
   };
 
   const findeCorrAnswer = (quest) => {
-    let result;
     if (quest % 2 === 0) {
-      result = 'yes';
+      return 'yes';
     }
-    if (quest % 2 !== 0) {
-      result = 'no';
-    }
-    return result;
+    return 'no';
   };
 
   playGame(createQuestion, askQuestion, findeCorrAnswer);

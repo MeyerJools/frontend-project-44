@@ -1,15 +1,19 @@
 import playGame from '../index.js';
+import random from '../random.js';
 
 const playBrainProgression = () => {
-  const askQuestion = () => {
-    console.log('What number is missing in the progression?');
-  };
+  const askQuestion = () => console.log('What number is missing in the progression?');
 
   const createQuestion = () => {
-    const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-    const array = [random(1, 100)];
-    const arrayLength = random(5, 10);
-    const step = random(1, 10);
+    const rangeStart = 1;
+    const rangeEnd = 50;
+    const array = [random(rangeStart, rangeEnd)];
+    const arrLengthMin = 5;
+    const arrLengthMax = 10;
+    const arrayLength = random(arrLengthMin, arrLengthMax);
+    const stepMin = 1;
+    const stepMax = 10;
+    const step = random(stepMin, stepMax);
     for (let i = 1; i < arrayLength; i += 1) {
       const nextNumb = array[i - 1] + step;
       array.push(nextNumb);

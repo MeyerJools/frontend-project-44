@@ -1,18 +1,15 @@
 import playGame from '../index.js';
+import random from '../random.js';
 
 const playBrainCalc = () => {
-  const askQuestion = () => {
-    console.log('What is the result of the expression?');
-  };
+  const askQuestion = () => console.log('What is the result of the expression?');
 
   const createQuestion = () => {
-    const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-    const num1 = random(1, 100);
-    const num2 = random(1, 100);
+    const rangeStart = 1;
+    const rangeEnd = 100;
     const operators = ['+', '-', '*'];
     const operator = operators[random(0, 2)];
-    const result = `${num1} ${operator} ${num2}`;
-    return result;
+    return `${random(rangeStart, rangeEnd)} ${operator} ${random(rangeStart, rangeEnd)}`;
   };
 
   const findeCorrAnswer = (quest) => {
