@@ -13,9 +13,23 @@ const playBrainCalc = () => {
   };
 
   const findeCorrAnswer = (quest) => {
-    const number = eval(quest);
-    const result = `${number}`;
-    return result;
+    const partOfExpr = quest.split(' ');
+    const operand1 = Number(partOfExpr[0]);
+    const operator = partOfExpr[1];
+    const operand2 = Number(partOfExpr[2]);
+    let result;
+
+    if (operator === '+') {
+      result = operand1 + operand2;
+    }
+    if (operator === '-') {
+      result = operand1 - operand2;
+    }
+    if (operator === '*') {
+      result = operand1 * operand2;
+    }
+
+    return result.toString();
   };
 
   playGame(createQuestion, askQuestion, findeCorrAnswer);
