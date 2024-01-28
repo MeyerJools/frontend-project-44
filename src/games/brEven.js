@@ -10,12 +10,7 @@ const playBrainEven = () => {
     return random(rangeStart, rangeEnd);
   };
 
-  const findeCorrAnswer = (quest) => {
-    if (quest % 2 === 0) {
-      return 'yes';
-    }
-    return 'no';
-  };
+  const findeCorrAnswer = (quest) => (quest % 2 === 0 ? 'yes' : 'no');
 
   playGame(createQuestion, askQuestion, findeCorrAnswer);
 };
