@@ -12,14 +12,7 @@ const playBrainGCD = () => {
 
   const findeCorrAnswer = (quest) => {
     const arr = quest.split(' ');
-    const coll = [];
-    if (arr[0] > arr[1]) {
-      coll.push(arr[0]);
-      coll.push(arr[1]);
-    } else {
-      coll.push(arr[1]);
-      coll.push(arr[0]);
-    }
+    const coll = arr.sort((a, b) => b - a);
 
     let [a, b] = coll;
     for (let i = 1; b > 0; i += 1) {
