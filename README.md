@@ -1,3 +1,9 @@
+Educational project: mathematical game "Mind Games".
+
+System requirements: 
+Node.js version v.21.2.0
+Dependencies: lodash: ^4.17.21, readline-sync: ^1.4.10
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/MeyerJools/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/MeyerJools/frontend-project-44/actions)
 
