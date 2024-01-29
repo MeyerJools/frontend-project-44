@@ -1,5 +1,5 @@
 import playGame from '../index.js';
-import random from '../random.js';
+import getRandomNumber from '../random.js';
 
 const playBrainEven = () => {
   const askQuestion = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -7,7 +7,7 @@ const playBrainEven = () => {
   const createQuestion = () => {
     const rangeStart = 1;
     const rangeEnd = 100;
-    return random(rangeStart, rangeEnd);
+    return getRandomNumber(rangeStart, rangeEnd);
   };
 
   const findeCorrAnswer = (quest) => (quest % 2 === 0 ? 'yes' : 'no');

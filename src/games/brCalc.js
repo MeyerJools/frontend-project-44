@@ -1,5 +1,5 @@
 import playGame from '../index.js';
-import random from '../random.js';
+import getRandomNumber from '../random.js';
 
 const playBrainCalc = () => {
   const askQuestion = () => console.log('What is the result of the expression?');
@@ -8,8 +8,8 @@ const playBrainCalc = () => {
     const rangeStart = 1;
     const rangeEnd = 100;
     const operators = ['+', '-', '*'];
-    const operator = operators[random(0, 2)];
-    return `${random(rangeStart, rangeEnd)} ${operator} ${random(rangeStart, rangeEnd)}`;
+    const operator = operators[getRandomNumber(0, 2)];
+    return `${getRandomNumber(rangeStart, rangeEnd)} ${operator} ${getRandomNumber(rangeStart, rangeEnd)}`;
   };
 
   const findeCorrAnswer = (quest) => {
