@@ -4,15 +4,14 @@ import getRandomNumber from '../random.js';
 const playBrainEven = () => {
   const askQuestion = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-  const createQuestion = () => {
-    const rangeStart = 1;
-    const rangeEnd = 100;
-    return getRandomNumber(rangeStart, rangeEnd);
+  const createQuestionAnswer = () => {
+    const range = [1, 100];
+    const question = getRandomNumber(range[0], range[1]);
+    const answer = question % 2 === 0 ? 'yes' : 'no';
+    return [question, answer];
   };
 
-  const findeCorrAnswer = (quest) => (quest % 2 === 0 ? 'yes' : 'no');
-
-  playGame(createQuestion, askQuestion, findeCorrAnswer);
+  playGame(createQuestionAnswer, askQuestion);
 };
 
 export default playBrainEven;

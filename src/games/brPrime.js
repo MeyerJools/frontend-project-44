@@ -4,25 +4,26 @@ import getRandomNumber from '../random.js';
 const playBrainPrime = () => {
   const askQuestion = () => console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-  const createQuestion = () => {
-    const rangeStart = 1;
-    const rangeEnd = 50;
-    return getRandomNumber(rangeStart, rangeEnd);
-  };
+  const createQuestionAnswer = () => {
+    const range = [1, 50];
+    const question = getRandomNumber(range[0], range[1]);
 
-  const findeCorrAnswer = (quest) => {
-    if (quest <= 1) {
-      return 'no';
-    }
-    for (let i = 2; i <= Math.sqrt(quest); i += 1) {
-      if (quest % i === 0) {
+    const findeCorrAnswer = () => {
+      if (question <= 1) {
         return 'no';
       }
-    }
-    return 'yes';
+      for (let i = 2; i <= Math.sqrt(question); i += 1) {
+        if (question % i === 0) {
+          return 'no';
+        }
+      }
+      return 'yes';
+    };
+    const answer = findeCorrAnswer();
+    return [question, answer];
   };
 
-  playGame(createQuestion, askQuestion, findeCorrAnswer);
+  playGame(createQuestionAnswer, askQuestion);
 };
 
 export default playBrainPrime;

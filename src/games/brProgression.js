@@ -4,17 +4,16 @@ import createProgression from '../progression.js';
 const playBrainProgression = () => {
   const askQuestion = () => console.log('What number is missing in the progression?');
 
-  const createQuestion = () => createProgression();
-
-  const findeCorrAnswer = (quest) => {
-    const coll = quest.split(' ');
+  const createQuestionAnswer = () => {
+    const question = createProgression();
+    const coll = question.split(' ');
     const step = Number(coll[1]) - Number(coll[0]);
     const missNum = coll.indexOf('..');
-    const result = `${Number(coll[missNum + 1]) - Number(step)}`;
-    return result;
+    const answer = `${Number(coll[missNum + 1]) - Number(step)}`;
+    return [question, answer];
   };
 
-  playGame(createQuestion, askQuestion, findeCorrAnswer);
+  playGame(createQuestionAnswer, askQuestion);
 };
 
 export default playBrainProgression;

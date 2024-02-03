@@ -4,35 +4,29 @@ import getRandomNumber from '../random.js';
 const playBrainCalc = () => {
   const askQuestion = () => console.log('What is the result of the expression?');
 
-  const createQuestion = () => {
-    const rangeStart = 1;
-    const rangeEnd = 100;
+  const createQuestionAnswer = () => {
+    const range = [1, 100];
     const operators = ['+', '-', '*'];
     const operator = operators[getRandomNumber(0, 2)];
-    return `${getRandomNumber(rangeStart, rangeEnd)} ${operator} ${getRandomNumber(rangeStart, rangeEnd)}`;
-  };
+    const operand1 = getRandomNumber(range[0], range[1]);
+    const operand2 = getRandomNumber(range[0], range[1]);
+    const question = `${operand1} ${operator} ${operand2}`;
 
-  const findeCorrAnswer = (quest) => {
-    const partOfExpr = quest.split(' ');
-    const operand1 = Number(partOfExpr[0]);
-    const operator = partOfExpr[1];
-    const operand2 = Number(partOfExpr[2]);
-    let result;
-
+    let answer;
     if (operator === '+') {
-      result = operand1 + operand2;
+      answer = operand1 + operand2;
     }
     if (operator === '-') {
-      result = operand1 - operand2;
+      answer = operand1 - operand2;
     }
     if (operator === '*') {
-      result = operand1 * operand2;
+      answer = operand1 * operand2;
     }
 
-    return result.toString();
+    return [question, answer.toString()];
   };
 
-  playGame(createQuestion, askQuestion, findeCorrAnswer);
+  playGame(createQuestionAnswer, askQuestion);
 };
 
 export default playBrainCalc;

@@ -4,16 +4,13 @@ import getRandomNumber from '../random.js';
 const playBrainGCD = () => {
   const askQuestion = () => console.log('Find the greatest common divisor of given numbers.');
 
-  const createQuestion = () => {
-    const rangeStart = 1;
-    const rangeEnd = 100;
-    return `${getRandomNumber(rangeStart, rangeEnd)} ${getRandomNumber(rangeStart, rangeEnd)}`;
-  };
-
-  const findeCorrAnswer = (quest) => {
-    const arr = quest.split(' ');
+  const createQuestionAnswer = () => {
+    const range = [1, 100];
+    const num1 = getRandomNumber(range[0], range[1]);
+    const num2 = getRandomNumber(range[0], range[1]);
+    const question = `${num1} ${num2}`;
+    const arr = [num1, num2];
     const coll = arr.sort((a, b) => b - a);
-
     let [a, b] = coll;
     for (let i = 1; b > 0; i += 1) {
       const c = a % b;
@@ -25,10 +22,11 @@ const playBrainGCD = () => {
         break;
       }
     }
-    return `${coll[coll.length - 1]}`;
+    const answer = `${coll[coll.length - 1]}`;
+    return [question, answer];
   };
 
-  playGame(createQuestion, askQuestion, findeCorrAnswer);
+  playGame(createQuestionAnswer, askQuestion);
 };
 
 export default playBrainGCD;
