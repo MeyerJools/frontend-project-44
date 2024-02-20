@@ -7,22 +7,19 @@ const playGame = (createQuestionAnswer, askQuestion) => {
   askQuestion();
 
   for (let i = 1; i <= 3; i += 1) {
-    const questionAnswer = createQuestionAnswer();
-    console.log(`Question: ${questionAnswer[0]}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (answer === questionAnswer[1]) {
+    const [question, answer] = createQuestionAnswer();
+    console.log(`Question: ${question}`);
+    const playerAnswer = readlineSync.question('Your answer: ');
+    if (playerAnswer === answer) {
       console.log('Correct!');
     }
-    if (answer !== questionAnswer[1]) {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${questionAnswer[1]}.`);
+    if (playerAnswer !== answer) {
+      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${answer}.`);
       console.log(`Let's try again, ${name}!`);
-      break;
-    }
-    if (i === 3) {
-      console.log(`Congratulations, ${name}!`);
-      break;
+      return;
     }
   }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default playGame;
