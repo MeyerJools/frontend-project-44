@@ -13,7 +13,7 @@ const playBrainProgression = () => {
     const coll = progression.split(' ');
     const missingNumbIndex = getRandomNumber(2, length - 2);
     coll[missingNumbIndex] = '..';
-    const question = coll;
+    const question = coll.join(' ');
     const answer = `${Number(coll[missingNumbIndex + 1]) - Number(step)}`;
     return [question, answer];
   };
