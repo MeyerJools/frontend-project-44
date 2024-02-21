@@ -5,21 +5,20 @@ const playBrainPrime = () => {
   const askQuestion = () => console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   const createQuestionAnswer = () => {
-    const range = [1, 50];
-    const question = getRandomNumber(range[0], range[1]);
+    const rangeStart = 2;
+    const rangeEnd = 50;
+    const question = getRandomNumber(rangeStart, rangeEnd);
 
     const findeCorrAnswer = () => {
-      if (question <= 1) {
-        return 'no';
-      }
       for (let i = 2; i <= Math.sqrt(question); i += 1) {
         if (question % i === 0) {
-          return 'no';
+          return false;
         }
       }
-      return 'yes';
+      return true;
     };
-    const answer = findeCorrAnswer();
+
+    const answer = findeCorrAnswer() ? 'yes' : 'no';
     return [question, answer];
   };
 

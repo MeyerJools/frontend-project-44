@@ -1,6 +1,6 @@
 import playGame from '../index.js';
 import getRandomNumber from '../random.js';
-import calc from '../exprCalc.js';
+import toCalcExpression from '../exprCalc.js';
 
 const playBrainCalc = () => {
   const askQuestion = () => console.log('What is the result of the expression?');
@@ -13,7 +13,7 @@ const playBrainCalc = () => {
     const operand1 = getRandomNumber(rangeStart, rangeEnd);
     const operand2 = getRandomNumber(rangeStart, rangeEnd);
     const question = `${operand1} ${operator} ${operand2}`;
-    const answer = calc(operator, operand1, operand2);
+    const answer = toCalcExpression(operator, operand1, operand2);
     return [question, answer.toString()];
   };
 

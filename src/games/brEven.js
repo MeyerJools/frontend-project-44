@@ -5,9 +5,13 @@ const playBrainEven = () => {
   const askQuestion = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   const createQuestionAnswer = () => {
-    const range = [1, 100];
-    const question = getRandomNumber(range[0], range[1]);
-    const answer = question % 2 === 0 ? 'yes' : 'no';
+    const rangeStart = 1;
+    const rangeEnd = 100;
+    const question = getRandomNumber(rangeStart, rangeEnd);
+
+    const isEven = (num) => num % 2 === 0;
+
+    const answer = isEven(question) ? 'yes' : 'no';
     return [question, answer];
   };
 
